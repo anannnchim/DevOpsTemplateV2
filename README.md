@@ -52,3 +52,6 @@ Connect with Github Action
 `.github/workflows/tests.yml` Add it
 
 `tox.ini` Add github section
+
+
+![Tests](https://github.com/anannnchim/DevOpsTemplateV2/actions/workflows/tests.yml/badge.svg)
