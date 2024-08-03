@@ -9,7 +9,7 @@ class TestAddition(unittest.TestCase):
         self.assertEqual(add(0, 0), 0)
         self.assertEqual(add(-1, 1), 0)
         self.assertEqual(add(-1, -1), -2)
-        self.assertEqual(add(1, 2), 3)
+        self.assertEqual(add(1.2, 2.3), 3.5)
 
 
 if __name__ == '__main__':
