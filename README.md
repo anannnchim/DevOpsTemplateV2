@@ -35,6 +35,10 @@ Then run `pip install -r requirements_dev.txt` in terminal to install.
 Check if we set up correctly by:
 - Run `mypy src` , `flake8 src`, `pytest` if there is no issue
 
+`tox.ini` A configuration file that will make sure that allow us to create new virtual environment and install those package into it, and run test.
+
+Run the commands `tox` in the terminal (`rm -rf .tox` to remove)
+
 Note: given pytest
 - folder should be `tests`
 - file should start with `test_function`

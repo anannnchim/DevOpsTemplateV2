@@ -1,16 +1,15 @@
 import unittest
-from calculator.addition import add_number
+from calculator.addition import add  # Ensure correct import path
 
-class TestMain(unittest.TestCase):
-    def test_add_number(self):
-        self.assertEqual(add_number(2,1),3)
-        self.assertEqual(add_number(3, 3),6)
-    def test_add_number_fail(self):
-        self.assertEqual(add_number(3, 4),7)
+class TestAddition(unittest.TestCase):
+
+    def test_add(self):
+        self.assertEqual(add(1, 2), 3)
+        self.assertEqual(add(0, 0), 0)
+        self.assertEqual(add(-1, 1), 0)
+        self.assertEqual(add(-1, -1), -2)
+        self.assertEqual(add(1.5, 2.5), 4.0)
 
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
-
-
