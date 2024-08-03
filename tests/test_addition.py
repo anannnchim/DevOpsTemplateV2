@@ -11,6 +11,5 @@ class TestAddition(unittest.TestCase):
         self.assertEqual(add(-1, -1), -2)
         self.assertEqual(add(1.5, 2.5), 4.0)
 
-
 if __name__ == '__main__':
     unittest.main()
