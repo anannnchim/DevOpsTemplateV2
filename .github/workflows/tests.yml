@@ -26,9 +26,3 @@ jobs:
 
     - name: Run tests
       run: tox
-
-    - name: Run flake8
-      run: tox -e flake8
-
-    - name: Run mypy
-      run: tox -e mypy
