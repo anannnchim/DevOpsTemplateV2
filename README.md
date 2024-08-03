@@ -55,3 +55,7 @@ Connect with Github Action
 
 
 ![Tests](https://github.com/anannnchim/DevOpsTemplateV2/actions/workflows/tests.yml/badge.svg)
+
+
+**Note**
+1. When adding a function, it must include `function.py`, `test_function.py`.
