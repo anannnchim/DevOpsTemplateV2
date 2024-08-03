@@ -51,12 +51,7 @@
       ```sh
       rm -rf .tox
       ```
-
-**Note**: For `pytest`, ensure the following conventions:
-- The test folder should be named `tests`.
-- Test files should start with `test_`.
-- Functions inside test files should start with `test_`.
-
+      
 ### Phase 3: Continuous Integration with GitHub Actions
 
 1. **GitHub Actions Configuration**:
@@ -73,4 +68,35 @@
 
 ### General Note
 
-- When adding a function, ensure to include both the function implementation file (e.g., `function.py`) and the corresponding test file (e.g., `test_function.py`).
+1. **When adding a new function**:
+
+   - Create `function.py`, `test_function.py` 
+
+2. **When adding a new folder**:
+   - Create `folder`, `__init__.py` 
+   - Add `py.typed` in each folder (may not important)
+   - Add name of the folder in `pyproject.toml` after `cov=`
+ 
+3. **When adding a new package**:
+- If using `pandas` in `src`:
+  - Add to `install_requires` in `setup.cfg`:
+    ```ini
+    install_requires =
+        requests>=2
+        pandas
+    ```
+  - Add specific version to `requirements.txt` if exact version control is needed:
+    ```
+    requests==2.26.0
+    pandas==1.3.3
+    ```
+  - Use `install_requires` for general dependencies needed by your package.
+  - Use `requirements.txt` for specifying exact versions for replicating environments.
+
+
+
+**Summary change**:
+- `pyproject.toml`: When we add a new folder. 
+- `setup.cfg`: When we add a package or dependency on any of requirements.
+- `requirements.txt` When we add a package that use in src.
+- `requirements_dex.txt` When we add a package that use to test.
