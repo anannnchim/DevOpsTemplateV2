@@ -20,7 +20,7 @@ Then run `Then pip install -e .` in terminal-push a link to src directory.
 
 **Phase 2**
 
-Make a project be able to test
+Make a project be able to test with several virtual environment. 
 
 `requirements_dev.txt` A requirement to run a test. 
 
@@ -43,5 +43,12 @@ Note: given pytest
 - folder should be `tests`
 - file should start with `test_function`
 - function inside a file start with `test`
-- 
 
+
+**Phase 3**
+
+Connect with Github Action
+
+`.github/workflows/tests.yml` Add it
+
+`tox.ini` Add github section
