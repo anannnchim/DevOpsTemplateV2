@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: calculator
-Version: 0.0.0
+Version: 0.1.0
 Summary: Calculate something
 Author: Chim
 License: MIT
@@ -15,6 +15,13 @@ Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
 Requires-Python: >=3.6
 License-File: LICENSE
 Requires-Dist: requests>=2
+Provides-Extra: testing
+Requires-Dist: pytest>=6.0; extra == "testing"
+Requires-Dist: pytest-cov>=2.0; extra == "testing"
+Requires-Dist: mypy>=0.910; extra == "testing"
+Requires-Dist: flake8>=3.9; extra == "testing"
+Requires-Dist: tox==3.24; extra == "testing"

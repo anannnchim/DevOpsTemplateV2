@@ -5,6 +5,7 @@ setup.cfg
 setup.py
 src/calculator/__init__.py
 src/calculator/addition.py
+src/calculator/py.typed
 src/calculator.egg-info/PKG-INFO
 src/calculator.egg-info/SOURCES.txt
 src/calculator.egg-info/dependency_links.txt
