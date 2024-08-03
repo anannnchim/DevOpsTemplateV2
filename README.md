@@ -1,61 +1,76 @@
+## Project Setup and Testing Phases
 
+### Phase 1: Package Setup and Installation
 
-**Phase 1**
+1. **Project Structure**:
+    - `src/function`: A folder containing your function modules.
+    - `tests/test_function.py`: A file containing your test cases.
+    - `pyproject.toml`: Configuration file for modern package management.
+    - `setup.py`: Installation script for the package.
+    - `setup.cfg`: Configuration file to store metadata.
+    - `requirements.txt`: List of dependencies required to run the project.
 
-Make the project as a package and install that package as enviornment.
+2. **Steps**:
+    - Run the following command in the terminal to install the package in editable mode:
+      ```sh
+      pip install -e .
+      ```
 
-`src/function` A folder of functions.
+### Phase 2: Testing with Multiple Virtual Environments
 
-`tests/test_function.py` A test file
+1. **Files and Configuration**:
+    - `requirements_dev.txt`: List of dependencies required for running tests.
+    - `setup.cfg`: Modify to include requirement information from `requirements_dev.txt`.
+    - `src/function/py.typed`: Add an empty `py.typed` file to signal that the package contains type hints.
+    - `pyproject.toml`: Add configuration for `pytest` and `mypy`.
 
-`pyproject.toml` The old way to install a package.
+2. **Installation and Setup**:
+    - Run the following command to install the development dependencies:
+      ```sh
+      pip install -r requirements_dev.txt
+      ```
 
-`setup.py` An installation script. 
+3. **Verification**:
+    - Run the following commands to ensure the setup is correct:
+      ```sh
+      mypy src
+      flake8 src
+      pytest
+      ```
 
-`setup.cgf` A configuration file to store metadata. 
+4. **Tox Configuration**:
+    - `tox.ini`: Configuration file to create new virtual environments, install packages, and run tests.
 
-`requirement.txt` All dependencies with version - to run the project. 
+5. **Run Tox**:
+    - Run the following command to execute tests in multiple environments:
+      ```sh
+      tox
+      ```
 
-Then run `Then pip install -e .` in terminal-push a link to src directory.
+    - If necessary, remove existing virtual environments with:
+      ```sh
+      rm -rf .tox
+      ```
 
-**Phase 2**
+**Note**: For `pytest`, ensure the following conventions:
+- The test folder should be named `tests`.
+- Test files should start with `test_`.
+- Functions inside test files should start with `test_`.
 
-Make a project be able to test with several virtual environment. 
+### Phase 3: Continuous Integration with GitHub Actions
 
-`requirements_dev.txt` A requirement to run a test. 
+1. **GitHub Actions Configuration**:
+    - `.github/workflows/tests.yml`: Add this file to configure GitHub Actions for continuous integration.
 
-`setup.cfg` Modify - Add requirement information from above file.
+2. **Tox Configuration for GitHub Actions**:
+    - Modify `tox.ini` to include a section for GitHub Actions.
 
-`src/function/py.typed` Add empty file
+3. **Badge for README**:
+    - Add the following badge to your `README.md` to display the status of your GitHub Actions tests:
+      ```markdown
+      ![Tests](https://github.com/anannnchim/DevOpsTemplateV2/actions/workflows/tests.yml/badge.svg)
+      ```
 
-`pyproject.toml` - Add configuration for pytest and mypy
+### General Note
 
-Then run `pip install -r requirements_dev.txt` in terminal to install.
-
-Check if we set up correctly by:
-- Run `mypy src` , `flake8 src`, `pytest` if there is no issue
-
-`tox.ini` A configuration file that will make sure that allow us to create new virtual environment and install those package into it, and run test.
-
-Run the commands `tox` in the terminal (`rm -rf .tox` to remove)
-
-Note: given pytest
-- folder should be `tests`
-- file should start with `test_function`
-- function inside a file start with `test`
-
-
-**Phase 3**
-
-Connect with Github Action
-
-`.github/workflows/tests.yml` Add it
-
-`tox.ini` Add github section
-
-
-![Tests](https://github.com/anannnchim/DevOpsTemplateV2/actions/workflows/tests.yml/badge.svg)
-
-
-**Note**
-1. When adding a function, it must include `function.py`, `test_function.py`.
+- When adding a function, ensure to include both the function implementation file (e.g., `function.py`) and the corresponding test file (e.g., `test_function.py`).
