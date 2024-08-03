@@ -1,6 +1,7 @@
 import unittest
 from calculator.addition import add  # Ensure correct import path
 
+
 class TestAddition(unittest.TestCase):
 
     def test_add(self):
